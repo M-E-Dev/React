@@ -1,4 +1,6 @@
 import React from 'react';
+// import React, { Component } from 'react';
+// bunu alırsak extends React.Component yerine Component yazmamız yeterli olur
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
