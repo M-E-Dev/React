@@ -7,8 +7,8 @@ function App() {
   return (
     <div>
       <h1>Hogwarts App</h1>
-      <ClassComponent />
-      <FunctionalComponent />
+      <ClassComponent name="Draco"/>
+      <FunctionalComponent name="Harry" />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-const FunctionalComponent = (props) => {
+const FunctionalComponent = ({props}) => {
         return(
             <div>
                 <h1>FunctionalComponent</h1>
