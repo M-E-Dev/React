@@ -1,4 +1,3 @@
-import '../../sass/style.scss';
 
 const Sassy = () => {
   return (
