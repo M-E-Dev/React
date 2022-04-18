@@ -8,14 +8,14 @@ import ModuleBtn from "./components/moduleCss/ModuleBtn";
 const App = () => {
   return (
     <>
-      {/* <Inline /> */}
+      <Inline />
       {/* <StyleSheet primary={false} /> */}
       {/* <Sassy /> */}
       {/* <h3 className="error">Something went wrong</h3> */}
       {/* <h3 className={styles.success}>200 Ok Success</h3>  */}
       {/* <h3 className={styles["success-bracket--notation"]}>200 Ok Success with bracket notation</h3> */}
-      <ModuleBtn btnClass="primary" btnName="Module" />
-      <ModuleBtn btnClass="secondary" btnName="CSS" />
+      {/* <ModuleBtn btnClass="primary" btnName="Module" />
+      <ModuleBtn btnClass="secondary" btnName="CSS" /> */}
     </>
   );
 };
