@@ -10,12 +10,13 @@ const App = () => {
     <>
       {/* <Inline /> */}
       {/* <StyleSheet primary={false} /> */}
-      <Sassy />
+      {/* <Sassy /> */}
       {/* <h3 className="error">Something went wrong</h3> */}
       {/* <h3 className={styles.success}>200 Ok Success</h3>  */}
+      {/* isminde - -- vs varsa böyle */}
       {/* <h3 className={styles["success-bracket--notation"]}>200 Ok Success with bracket notation</h3> */}
-      {/* <ModuleBtn btnClass="primary" btnName="Module" />
-      <ModuleBtn btnClass="secondary" btnName="CSS" /> */}
+      <ModuleBtn btnClass="primary" btnName="Module" />
+      <ModuleBtn btnClass="secondary" btnName="CSS" />
     </>
   );
 };

@@ -14,7 +14,7 @@
   margin: 5px;
 }
 .primary:hover {
-  background-color: #004084;
+  background-color: #f0ebe6;
 }
 
 .secondary {
@@ -29,5 +29,5 @@
   margin: 5px;
 }
 .secondary:hover {
-  background-color: #3d4347;
+  background-color: #e6ecf0;
 }
