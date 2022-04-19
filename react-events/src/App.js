@@ -8,8 +8,8 @@ const App = () => {
     return (
         <div className="App">
             {/* <h1>Events in React</h1> */}
-            <EventBind />
-            {/* <MouseEvents /> */}
+            {/* <EventBind /> */}
+            <MouseEvents />
             {/* <KeyboardEvents /> */}
             {/* <Form /> */}
         </div>
