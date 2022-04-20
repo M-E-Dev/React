@@ -39,6 +39,15 @@ export default class Counter extends Component {
     console.log("Updated");
   }
 
+  getSnapshotBeforeUpdate(prevprops, prevstate){
+      console.log("Snapshot", prevstate)
+      return null;
+  }
+
+  componentWillUnmount(){
+      console.log("Will Unmount BYE")
+  }
+
   render() {
     console.log("render");
     return (
