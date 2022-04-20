@@ -12,6 +12,8 @@ function App() {
       {classComp && <ClassComponent />}
       <button onClick={() => setFuncComp(!funcComp)}>Toggle Func Comp</button>
       {funcComp && <FunctionalComponent />} */}
+      <ClassComponent />
+      <FunctionalComponent />
       <Users />
     </div>
   );
