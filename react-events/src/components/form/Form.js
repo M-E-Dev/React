@@ -13,6 +13,7 @@ console.log({name, email, password, country});
 
 // ONFOCUS ONBLUR ????
 
+// TEK TEK BUNLARI YAZMAK YERİNE INPUT HELPER ZAYDIK--------------------
 
 //name
   // const handleNameField = e => setName(e.target.value);
@@ -28,6 +29,10 @@ console.log({name, email, password, country});
 
 
 // submit
+
+// const handleValues = (e) => {
+//   setValues({...values, [e.target.name]: e.target.value})
+// }
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -45,6 +50,7 @@ const handleSubmit = (e) => {
 
   return (
     <div style={{ height: "110vh" }}>
+      {/* onsubmit butona değil forma verilir */}
       <form onSubmit={handleSubmit}>
         <div>
           <p>{name}</p>
@@ -71,6 +77,7 @@ const handleSubmit = (e) => {
             placeholder="email"
             onChange={setInput(setEmail)}
             value={email}
+            // pattern={regex}
           />
         </div>
         <div>
@@ -98,9 +105,9 @@ const handleSubmit = (e) => {
           >
             <option value="">Country</option>
             <option value="Turkey">Turkey</option>
+            <option value="Britain">Britain</option>
+            <option value="Italy">Italy</option>
             <option value="Germany">Germany</option>
-            <option value="Netherland">Netherland</option>
-            <option value="France">France</option>
           </select>
         </div>
         <button className="btn__click" type="submit">
