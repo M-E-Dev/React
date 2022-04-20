@@ -11,6 +11,9 @@ const [country, setCountry ] = useState("");
 
 console.log({name, email, password, country});
 
+// ONFOCUS ONBLUR ????
+
+
 //name
   // const handleNameField = e => setName(e.target.value);
 

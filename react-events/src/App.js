@@ -10,8 +10,8 @@ const App = () => {
             {/* <h1>Events in React</h1> */}
             {/* <EventBind /> */}
             {/* <MouseEvents /> */}
-            <KeyboardEvents />
-            {/* <Form /> */}
+            {/* <KeyboardEvents /> */}
+            <Form />
         </div>
     )
 }
