@@ -11,6 +11,11 @@ const FunctionalComponent = () => {
         }
     }, [count])
 
+    // dependency yoksa didUpdate, her render()
+    // boş dependency didMount, ilk render()
+    // dolu dependency didUpdate,
+    // return varsa willUnmount
+
     // const increase = () => {
     //     setCount(count+1);
     // }
