@@ -1,8 +1,22 @@
+import React from "react";
 import Card from "./component/Card";
-import data from "./data.json";
+import { useEffect, useState } from "react";
+// import data from "./data.json";
+import axios from "axios"
 
 export default function App() {
+  const [itemList, setItemList] = useState([]);
+
+  useEffect(()=>{
+    // fetch('https://breakingbadapi.com/api/characters')
+    // .then(response => response.json())
+    // .then((data) => setItemList(data));
+    axios
+    .get('https://breakingbadapi.com/api/characters')
+    .then(response => setItemList(response.data))
   
+  }, [])
+
   
   return(
     <div className="App">
@@ -11,7 +25,7 @@ export default function App() {
       </header>
   
       <div className="cards">
-        {data.map((item) => (
+        {itemList.map((item) => (
           <Card key={item.char_id} item={item} />
         ))}
       </div>
