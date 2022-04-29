@@ -6,6 +6,7 @@ export default function Functional(props) {
 
   const [count, setCount] = useState(0);
   const [empty, setEmpty] = useState(0);
+  const [full, setFull] = useState(0);
 
   const increment = () => {
     setCount(count+1)
@@ -17,21 +18,33 @@ export default function Functional(props) {
     }
   }
 
+
+
   // dependency yoksa her update
   // dependency varsa sadece mount
+  // [] içinde değişken varsa, o değiştiğinde render
   // return varsa unmount
   useEffect( () => {
     console.log("useEffect");
     // // useEffect içinde state değiştirirsek sonsuz döngüye girer... infinit loop...
     // setEmpty(empty+1)
-  })
+    return() => {console.log("Hoççagalın")}
+  }, 
+  // [count] // sadece count değiştiğinde render eder...
+  [empty, full]  // ikisinin değişiminde de render alır...
+  )
+
+
 
   return (
     <div>
       <button onClick={increment}>+</button>
       <h1>{count}</h1>
-      <button onClick={decrement} >-</button>
-      <h2>{props.name}</h2>
+      <button onClick={decrement} >-</button> <hr/>
+      <button onClick={() => {setEmpty(empty+1)}} >+</button> 
+      <h2>{empty}</h2> <hr/>
+      <button onClick={() => {setFull(full+1)}} >+</button>
+      <h2>{full}</h2>
     </div>
   );
 }
