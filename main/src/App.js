@@ -1,21 +1,35 @@
-import {useState} from 'react';
-import ClassComponent from './ClassComponent';
-import FunctionalComponent from './FunctionalComponent';
-import Users from './Users';
+import React from "react";
+import Card from "./component/Card";
+import { useEffect, useState } from "react";
+// import data from "./data.json";
+import axios from "axios"
 
-function App() {
-  const [classComp, setClassComp] = useState(true);
-  const [funcComp, setFuncComp] = useState(true);
-  return (
+export default function App() {
+  const [itemList, setItemList] = useState([]);
+
+  useEffect(()=>{
+    // fetch('https://breakingbadapi.com/api/characters')
+    // .then(response => response.json())
+    // .then((data) => setItemList(data));
+    axios
+    .get('https://breakingbadapi.com/api/characters')
+    .then(response => setItemList(response.data))
+  
+  }, [])
+
+  
+  return(
     <div className="App">
-      {/* <button onClick={() => setClassComp(!classComp)}>Toggle Class Comp</button>
-      {classComp && <ClassComponent />}
-      <button onClick={() => setFuncComp(!funcComp)}>Toggle Func Comp</button>
-      {funcComp && <FunctionalComponent />} */}
+      <header className="header">
+        <img src="https://avatars.dicebear.com/v2/avataaars/59.svg" alt="header image"/>
+      </header>
+  
+      <div className="cards">
+        {itemList.map((item) => (
+          <Card key={item.char_id} item={item} />
+        ))}
+      </div>
 
-      <Users />
     </div>
-  );
+  )
 }
-
-export default App;
