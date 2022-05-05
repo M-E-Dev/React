@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Routes, Switch } from "react-router-dom
 
 const App = () => {
   return (
+    // <Router>
     <Router basename="/hogwarts">
     {/* <Router forceRefresh ???> */}
       <div className="App">
