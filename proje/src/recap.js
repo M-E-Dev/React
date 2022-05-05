@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 export default class Recap extends Component {
   constructor(props) {
     super(props);
@@ -27,6 +28,10 @@ export default class Recap extends Component {
 
   shouldComponentUpdate(){
     return false; // true yaparsak update olur
+  }
+
+  componentWillUnmount(){
+    console.log("---- Recap Unmounted ----")
   }
 
 
