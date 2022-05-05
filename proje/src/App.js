@@ -1,18 +1,13 @@
-import './App.css';
-import React, { Component } from 'react'
-export default class App extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-    }
-  }
+import React from "react";
+import Header from "./component/Header";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
-  render() {
-    return (
+export default function App() {
+  return (
+    <Router>
       <div className="App">
-        
-    </div>
-    )
-  }
+        <Header />
+      </div>
+    </Router>
+  );
 }
