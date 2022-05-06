@@ -26,6 +26,7 @@ const App = () => {
           <Route path="about" element={<About />} />
           <Route path="profile" element={<Profile />} />
           {/* //match nedir? */}
+          <Route path="post" element={<Post />} />
           <Route path="post/:name" element={<Post />} />
           <Route path="*" element={<NotFound />} />
       </Routes>
