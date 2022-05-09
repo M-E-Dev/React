@@ -1,7 +1,7 @@
 import React from "react";
 import cw from "../assets/cw_logo.png";
 
-const Header = () => {
+const Header = ({img}) => {
   console.log("Rendering: Header Component");
   return(
     <div className="header">

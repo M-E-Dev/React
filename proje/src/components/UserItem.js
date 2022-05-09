@@ -9,6 +9,7 @@ const UserItem = ({ user, add }) => {
     </div>
   )
 }
+export default UserItem;
 
 
 

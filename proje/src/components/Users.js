@@ -6,9 +6,8 @@ const Users = (students, add) => {
   return(
     <div className="users">
         {students?.map(student => {
-            return <ListItem key={student.id} student={student} add={add} />
+            return <UserItem key={student.id} student={student} add={add} />
         })}
-
     </div>
       ) 
 }
