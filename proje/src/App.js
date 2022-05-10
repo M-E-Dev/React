@@ -1,28 +1,39 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Header from "./components/Header";
 import Users from "./components/Users";
-import fs from "assets/fs.png"
-import aws from "assets/aws.png"
+import fs from "./assets/fs.png"
+import aws from "./assets/aws.png"
+import axios from "axios";
 
 
 function App() {
+
+  const [counter, setCounter] = useState(0);
+  const [img, setImg] = useState();
+  const [studentsList, setStudentsList] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/users")
+    .then(res => setStudentsList(res.data));
+  }, [])
+  
+  // React.memo ile app render oluyo ama header olmuyo. ilginç...
+  console.log("App Rendered")
+  
   return(
     <div className="App">
-
+      <button onClick={()=> setImg(fs)}>FS</button>
+      <button onClick={()=> setImg(aws)}>AWS</button>
+      <button onClick={()=> setImg("")}>RESET</button>
+      <Header img={img}/>
+      <p>Counter: {counter}</p>
+      <button onClick={()=> setCounter(counter+1)}>Increase</button>
+      <button onClick={()=> setCounter(0)}>Reset</button>
+      <Users students={studentsList}/>
     </div>
   )
 }
 export default App;
-
-
-
-
-
-
-
-
-
-
 
 
 

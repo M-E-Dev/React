@@ -1,11 +1,12 @@
 import React from 'react';
 
-const UserItem = ({ user, add }) => {
+const UserItem = ({ student, add }) => {
   console.log("Rendering: User Item Comp!");
   return(
-    <div className='useritem'>
-      <img src={`https://avatars.dicebear.com/v2/avataaars/${user.id}.svg`}
+    <div className='useritem' onClick={()=> add(student)}>
+      <img src={`https://avatars.dicebear.com/v2/avataaars/${student.id}.svg`}
       alt="random-avatar" />
+      {student?.name}
     </div>
   )
 }
