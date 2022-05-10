@@ -1,44 +1,69 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Header from "./components/Header";
 import Users from "./components/Users";
-import fs from "./assets/fs.png"
-import aws from "./assets/aws.png"
+import fs from "./assets/fs.png";
+import aws from "./assets/aws.png";
 import axios from "axios";
-
+import UserItem from "./components/UserItem";
 
 function App() {
-
   const [counter, setCounter] = useState(0);
   const [img, setImg] = useState();
-  const [studentsList, setStudentsList] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [text, setText] = useState("");
+  console.log(text);
+  const [search, setSearch] = useState("");
+  console.log(search);
 
   useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/users")
-    .then(res => setStudentsList(res.data));
-  }, [])
-  
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => setUsers(res.data));
+  }, []);
+
   // React.memo ile app render oluyo ama header olmuyo. ilginç...
-  console.log("App Rendered")
-  
-  return(
+  console.log("App Rendered");
+
+  const handleText = (e) => {
+    setText(e.target.value);
+  };
+  const handleSearch = () => {
+    setSearch(text);
+  };
+  const resetSearch = () => {
+    setSearch("");
+  };
+
+
+// useMemo değer tutar, useCallback fonksiyon tutar
+
+  const filteredUsers = useMemo(() =>
+    users.filter((user) => {
+      return user.name.toLowerCase().includes(search.toLowerCase());
+    }),[search, users]
+  );
+
+  const add = useCallback(() => {
+    setUsers([...users, {id: users.length + 1, name: "Harry Potter"}])
+  },[users])
+
+  return (
     <div className="App">
-      <button onClick={()=> setImg(fs)}>FS</button>
-      <button onClick={()=> setImg(aws)}>AWS</button>
-      <button onClick={()=> setImg("")}>RESET</button>
-      <Header img={img}/>
+      <button onClick={() => setImg(fs)}>FS</button>
+      <button onClick={() => setImg(aws)}>AWS</button>
+      <button onClick={() => setImg("")}>RESET</button>
+      <Header img={img} />
       <p>Counter: {counter}</p>
-      <button onClick={()=> setCounter(counter+1)}>Increase</button>
-      <button onClick={()=> setCounter(0)}>Reset</button>
-      <Users students={studentsList}/>
+      <button onClick={() => setCounter(counter + 1)}>Increase</button>
+      <button onClick={() => setCounter(0)}>Reset</button>
+      <input type="text" value={text} onChange={handleText} />
+      <button onClick={handleSearch}>Search</button>
+      <button onClick={resetSearch}>Reset</button>
+      <Users students={filteredUsers} add={add}/>
     </div>
-  )
+  );
 }
 export default App;
-
-
-
-
-
 
 // import UseRefComponent from "./components/UseRefComponent";
 
@@ -100,7 +125,6 @@ export default App;
 //       <input ref={inputRef} onChange={() => setText(inputRef.current.value)} />
 //       <button onClick={handleSearch}>Search User</button>
 //       <Users users={filteredUsers} add={addUser}/>
-
 
 //     </div>
 //   );

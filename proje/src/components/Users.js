@@ -1,16 +1,17 @@
 import React from 'react'
 import UserItem from './UserItem'
 
-const Users = ({students, add}) => {
+const Users = React.memo(({students, add}) => {
   console.log('Rendering: Users Comp!')
   return(
     <div className="users">
+      <button onClick={()=> add()}>ADD</button>
         {students?.map((student) => {
             return <UserItem key={student.id} student={student} add={add} />
         })}
     </div>
       ) 
-}
+})
 
 export default Users;
 
