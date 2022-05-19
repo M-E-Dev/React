@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Header from "./components/Header";
 import fs from "./assets/fs.png";
 import aws from "./assets/aws.png";
-import { Button } from "./components/Button.styles";
+import { StyledButton1, StyledButton2 } from "./components/Button.styles";
 
 
 function App() {
@@ -30,9 +30,11 @@ function App() {
 
   return (
     <div className="App">
-      <Button onClick={() => setImg(fs)}>FS</Button>
-      <Button onClick={() => setImg(aws)}>AWS</Button>
-      <Button onClick={() => setImg("")}>RESET</Button>
+      <StyledButton1 onClick={() => setImg(fs)}>FS</StyledButton1>
+      <StyledButton1 onClick={() => setImg(aws)}>AWS</StyledButton1>
+      <StyledButton2 onClick={() => setImg("")}>RESET</StyledButton2>
+      <StyledButton2 >Grey</StyledButton2>
+      <StyledButton2 dark>Dark</StyledButton2>
       <Header img={img} />
       <p>Counter: {counter}</p>
 
