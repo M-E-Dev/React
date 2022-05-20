@@ -4,6 +4,7 @@ import fs from "./assets/fs.png";
 import aws from "./assets/aws.png";
 import { StyledButton1, StyledButton2 } from "./components/styled-comp/button/Button.styles";
 import Wrapper from "./components/styled-comp/wrapper/Wrapper/Wrapper";
+import HeaderText from "./components/styled-comp/header/HeaderText";
 
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
       <StyledButton2 >Grey</StyledButton2>
       <StyledButton2 dark>Dark</StyledButton2>
       <Body img={img} />
-      <p>Counter: {counter}</p>
+      <HeaderText>Hogwarts</HeaderText>
 
     </Wrapper>
   );
