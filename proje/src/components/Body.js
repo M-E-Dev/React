@@ -1,12 +1,12 @@
 import React from "react";
 import cw from "../assets/cw_logo.png";
 
-const Header = ({img}) => {
-  console.log("Rendering: Header Component");
+const Body = ({img}) => {
+  console.log("Rendering: Body Component");
   return(
-    <div className="header">
+    <div className="Body">
       <img src={img ? img : cw} alt="cw_logo" style={{margin:"1rem", maxHeight: "200px"}} />
     </div>
   )
 }
-export default Header;
+export default Body;

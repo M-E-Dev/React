@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import Header from "./components/Header";
+import Body from "./components/Body";
 import fs from "./assets/fs.png";
 import aws from "./assets/aws.png";
 import { StyledButton1, StyledButton2 } from "./components/styled-comp/button/Button.styles";
@@ -36,7 +36,7 @@ function App() {
       <StyledButton1 onClick={() => setImg("")}>RESET</StyledButton1>
       <StyledButton2 >Grey</StyledButton2>
       <StyledButton2 dark>Dark</StyledButton2>
-      <Header img={img} />
+      <Body img={img} />
       <p>Counter: {counter}</p>
 
     </Wrapper>
