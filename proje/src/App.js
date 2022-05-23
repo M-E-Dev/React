@@ -5,7 +5,7 @@ import aws from "./assets/aws.png";
 import { StyledButton1, StyledButton2 } from "./components/styled-comp/button/Button.styles";
 import Wrapper from "./components/styled-comp/wrapper/Wrapper/Wrapper";
 import HeaderText from "./components/styled-comp/header/HeaderText";
-import Link from "./components/styled-comp/link/link";
+import Link from "./components/styled-comp/link/Link";
 import ExtendedComp from "./components/styled-comp/extended-link/ExtendedComp";
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
       {/* // link rel="noopener" "noreferer" nedir? */}
       <Link href="https://www.instagram.com/" target="_blank" rel="noopener">INSTAGRAM</Link>
       <Link href="https://www.instagram.com/" target="_blank" rel="noopener" secondary>FACEBOOK</Link>
-      <ExtendedComp >FACEBOOK</ExtendedComp>
+      <ExtendedComp >Extended Component link</ExtendedComp>
 
     </Wrapper>
   );
