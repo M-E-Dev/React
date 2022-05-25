@@ -18,6 +18,7 @@ import { createTheme } from "@material-ui/core";
 import { orange, green } from "@material-ui/core/colors";
 import TypographyComp from "./components/material-ui/typography/TypographyComp";
 import WrapperComp from "./components/material-ui/wrapper/WrapperComp";
+import Cards from "./components/material-ui/cards/Cards";
 
 const theme = createTheme({
   palette:{
@@ -53,6 +54,7 @@ function App() {
           <TypographyComp />
           <TextFieldComp />
           <WrapperComp />
+          <Cards />
         </div>
       </div>
       </Wrapper>
