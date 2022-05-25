@@ -4,7 +4,7 @@ import { Container } from "@material-ui/core";
 const WrapperComp = ({children}) => {
   return (
     <div>
-      <Container>
+      <Container maxWidth="md">
           {children}
       </Container>
     </div>
