@@ -19,26 +19,28 @@ import { orange, green } from "@material-ui/core/colors";
 import TypographyComp from "./components/material-ui/typography/TypographyComp";
 import WrapperComp from "./components/material-ui/wrapper/WrapperComp";
 import Cards from "./components/material-ui/cards/Cards";
+import AppBarComp from "./components/material-ui/app-bar/AppBarComp";
+import StyledButton from "./components/material-ui/styled-button/StyledButton";
 
 const theme = createTheme({
-  palette:{
-    primary:{
-      main: orange[400]
+  palette: {
+    primary: {
+      main: orange[400],
     },
-    secondary:{
-      main: green[400]
-    }
+    secondary: {
+      main: green[400],
+    },
   },
-  typography:{
-    h2:{
-      fontSize:38,
-      padding: 2
+  typography: {
+    h2: {
+      fontSize: 38,
+      padding: 2,
     },
-    subtitle1:{
-      marginBottom:5
-    }
-  }
-})
+    subtitle1: {
+      marginBottom: 5,
+    },
+  },
+});
 
 function App() {
   const [img, setImg] = useState();
@@ -47,16 +49,18 @@ function App() {
     // // Material ui
     <ThemeProvider theme={theme}>
       <Wrapper>
-      <div className="App">
-        <div className="App-header">
-          <CheckBoxComp />
-          <Buttons />
-          <TypographyComp />
-          <TextFieldComp />
-          <WrapperComp />
-          <Cards />
+        <AppBarComp />
+        <div className="App">
+          <div className="App-header">
+            <StyledButton/>
+            <CheckBoxComp />
+            <Buttons />
+            <TypographyComp />
+            <TextFieldComp />
+            <WrapperComp />
+            <Cards />
+          </div>
         </div>
-      </div>
       </Wrapper>
     </ThemeProvider>
 
