@@ -3,9 +3,9 @@ import { Paper } from "@material-ui/core";
 
 const Cards = () => {
   return (
-    <Grid container justifyContent="center">
-      {[0, 1, 2].map((value) => (
-        <Grid key={value} item>
+    <Grid container justifyContent="center" spacing={2}>
+      {[0, 1, 2, 3, 4, 5, 6].map((value) => (
+        <Grid key={value} item xs={6} >
           <Paper style={{height:90, width:50}}/>
         </Grid>
       ))}
