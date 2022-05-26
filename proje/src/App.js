@@ -1,12 +1,30 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState } from "react";
+import StudentList from "./components/StudentList";
 
-function App() {
+const data = [
+  { id: 1, name: "Harry Potter", email: "harry@mail.com", age: 14, color: "lightcyan"},
+  { id: 2, name: "Draco Malfoy", email: "draco@mail.com", age: 13, color: "honeydew"},
+  { id: 3, name: "Ron  Weasley", email: "ron@mail.com", age: 15, color: "mistyrose"}
+]
+
+const App= () => {
+  const [students, SetStudents] = useState(data);
+
+  const changeColor = (id, color) => {
+    SetStudents(
+      students.map((student) =>
+        student.id === id ? { ...student, color: color } : student
+      )
+    );
+  };
 
   return (
-    <div >
-      <h1>useContext</h1>
+    <div className="App">
+      <header>
+        <h1>Welcome</h1>
+      </header>
+      <StudentList students={students} changeColor={changeColor} />
     </div>
-
   );
 }
 export default App;
