@@ -1,13 +1,32 @@
 import React, { useState } from "react";
 import StudentList from "./components/StudentList";
+import { StudentContext } from "./context/StudentContext";
 
 const data = [
-  { id: 1, name: "Harry Potter", email: "harry@mail.com", age: 14, color: "lightcyan"},
-  { id: 2, name: "Draco Malfoy", email: "draco@mail.com", age: 13, color: "honeydew"},
-  { id: 3, name: "Ron  Weasley", email: "ron@mail.com", age: 15, color: "mistyrose"}
-]
+  {
+    id: 1,
+    name: "Harry Potter",
+    email: "harry@mail.com",
+    age: 14,
+    color: "lightcyan",
+  },
+  {
+    id: 2,
+    name: "Draco Malfoy",
+    email: "draco@mail.com",
+    age: 13,
+    color: "honeydew",
+  },
+  {
+    id: 3,
+    name: "Ron  Weasley",
+    email: "ron@mail.com",
+    age: 15,
+    color: "mistyrose",
+  },
+];
 
-const App= () => {
+const App = () => {
   const [students, SetStudents] = useState(data);
 
   const changeColor = (id, color) => {
@@ -19,12 +38,14 @@ const App= () => {
   };
 
   return (
-    <div className="App">
-      <header>
-        <h1>Welcome</h1>
-      </header>
-      <StudentList students={students} changeColor={changeColor} />
-    </div>
+    <StudentContext.Provider value={changeColor}>
+      <div className="App">
+        <header>
+          <h1>Welcome</h1>
+        </header>
+        <StudentList students={students} changeColor={changeColor} />
+      </div>
+    </StudentContext.Provider>
   );
-}
+};
 export default App;
