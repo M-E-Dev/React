@@ -38,12 +38,12 @@ const App = () => {
   };
 
   return (
-    <StudentContext.Provider value={changeColor}>
+    <StudentContext.Provider value={{changeColor, students}}>
       <div className="App">
         <header>
           <h1>Welcome</h1>
         </header>
-        <StudentList students={students} changeColor={changeColor} />
+        <StudentList />
       </div>
     </StudentContext.Provider>
   );
