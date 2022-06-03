@@ -1,51 +1,47 @@
-import React, { useState } from "react";
-import StudentList from "./components/StudentList";
-import { StudentContext } from "./context/StudentContext";
+import React, { useState, useReducer } from "react";
 
-const data = [
-  {
-    id: 1,
-    name: "Harry Potter",
-    email: "harry@mail.com",
-    age: 14,
-    color: "lightcyan",
-  },
-  {
-    id: 2,
-    name: "Draco Malfoy",
-    email: "draco@mail.com",
-    age: 13,
-    color: "honeydew",
-  },
-  {
-    id: 3,
-    name: "Ron  Weasley",
-    email: "ron@mail.com",
-    age: 15,
-    color: "mistyrose",
-  },
-];
+const initialState = {
+  data:"",
+  loading: false,
+  error:""
+}
 
 const App = () => {
-  const [students, SetStudents] = useState(data);
+  const [state, dispatch] = useReducer(reducer, initialState)
 
-  const changeColor = (id, color) => {
-    SetStudents(
-      students.map((student) =>
-        student.id === id ? { ...student, color: color } : student
-      )
-    );
+  // const [data, setData] = useState("");
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState("");
+
+  const fetchData = () => {
+    setLoading(true);
+    setError("");
+    setData("");
+
+    fetch("https://api.thecatapi.com/v1/images/search")
+      .then((res) => res.json())
+      .then((res) => {
+        setLoading(false);
+        setData(res[0].url);
+      })
+      .catch(() => {
+        setLoading(false);
+        setError("Something went wrong");
+      });
   };
 
   return (
-    <StudentContext.Provider value={{changeColor, students}}>
-      <div className="App">
-        <header>
-          <h1>Welcome</h1>
-        </header>
-        <StudentList />
-      </div>
-    </StudentContext.Provider>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <button
+        onClick={fetchData}
+        disabled={loading}
+        style={{ width: "100px", margin: "1rem" }}
+      >
+        Fetch Data
+      </button>
+      {data && <img src={data} alt="cat-img" />}
+      {error && <p>{error}</p>}
+    </div>
   );
 };
 export default App;
