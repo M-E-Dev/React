@@ -1,55 +1,26 @@
-import React, { useState, useReducer } from "react";
-import { reducer } from "./reducer";
+import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
+import { increase, decrease, reset } from "./redux/actions/actions";
 
-const initialState = {
-  data:"",
-  loading: false,
-  error:""
-}
-
-const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
-  const {data, loading, error} = state;
-
-
-
-  // const [data, setData] = useState("");
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState("");
-
-  const fetchData = () => {
-
-    dispatch({type: "FETCH_START"})
-    // setLoading(true);
-    // setError("");
-    // setData("");
-
-    fetch("https://api.thecatapi.com/v1/images/search")
-      .then((res) => res.json())
-      .then((res) => {
-        dispatch({type: "FETCH_SUCCESS", payload: res[0].url})
-        // setLoading(false);
-        // setData(res[0].url);
-      })
-      .catch(() => {
-        dispatch({type: "FETCH_FAIL", payload: "Something went wrong"})
-        // setLoading(false);
-        // setError("");
-      });
-  };
+function App() {
+  const { counter } = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <button
-        onClick={fetchData}
-        disabled={loading}
-        style={{ width: "100px", margin: "1rem" }}
-      >
-        Fetch Data
-      </button>
-      {data && <img src={data} alt="cat-img" />}
-      {error && <p>{error}</p>}
+    <div className="App">
+      <header className="App-header">
+        <h2>Counter</h2>
+        <div>
+          <h1>{counter}</h1>
+        </div>
+        <div>
+          <button onClick={() => dispatch(increase())}>increase</button>
+          <button onClick={() => dispatch(reset())}>reset</button>
+          <button onClick={() => dispatch(decrease())}>decrease</button>
+        </div>
+      </header>
     </div>
   );
-};
+}
+
 export default App;
