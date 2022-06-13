@@ -1,6 +1,7 @@
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { increase, decrease, reset } from "./redux/actions/actions";
+import { INCREASE_COUNTER } from "./redux/types/types";
 
 function App() {
   const { counter } = useSelector((state) => state);
@@ -14,6 +15,7 @@ function App() {
           <h1>{counter}</h1>
         </div>
         <div>
+          {/* <button onClick={() => dispatch({type: INCREASE_COUNTER})}>increase</button> */}
           <button onClick={() => dispatch(increase())}>increase</button>
           <button onClick={() => dispatch(reset())}>reset</button>
           <button onClick={() => dispatch(decrease())}>decrease</button>
