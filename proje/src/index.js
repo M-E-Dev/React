@@ -9,7 +9,7 @@ const store = counterStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={myStore}>
       <App />
       <Todo/>
     </Provider>
