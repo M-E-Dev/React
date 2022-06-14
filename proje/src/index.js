@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { counterStore } from "./redux";
+import { myStore } from "./redux";
 import { Provider } from "react-redux";
 
-const store = counterStore();
+const store = myStore();
 
 ReactDOM.render(
   <React.StrictMode>

@@ -2,8 +2,8 @@ import {
     ADD_TODO,
     TOGGLE_TODO,
     DELETE_TODO,
-    CLEAR_TODO_LİST,
-  } from "../types/types";
+    CLEAR_TODO_LIST,
+  } from "../types/todoTypes";
   
   const INITIAL_STATE = {
     counter: 0,
@@ -21,7 +21,7 @@ import {
           ],
         };
   
-      case CLEAR_TODO_LİST:
+      case CLEAR_TODO_LIST:
         return INITIAL_STATE;
   
       case TOGGLE_TODO:
