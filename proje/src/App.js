@@ -2,7 +2,8 @@ import { useState } from 'react'
 // import StudentList from './components/StudentList'
 // import {StudentContext} from './context/StudentContext';
 
-import ContextApp from './cohort10context/ContextApp';
+import ContextApp from './cohort10context/ContextApp'
+import { ProductContext } from './cohort10context/ProductContext'
 
 // const data = [
 //   { id: 1, name: 'Jason Response', email: 'jason@mail.com', age: 23, color: 'lightcyan' },
@@ -30,12 +31,11 @@ import ContextApp from './cohort10context/ContextApp';
 
 // export default App
 
-
 const App = () => {
-  return(
+  return (
     <div>
-      <ContextApp/>
+        <ContextApp />
     </div>
-  );
-};
+  )
+}
 export default App

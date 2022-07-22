@@ -1,8 +1,12 @@
 import React from 'react'
+import { useContext } from 'react'
+import { ProductContext } from './ProductContext'
 
-const Product = () => {
+const Product = ({ product }) => {
   return (
-    <div>Product</div>
+    <div>
+      <h1>{product.product}</h1>
+    </div>
   )
 }
 
