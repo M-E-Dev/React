@@ -1,28 +1,41 @@
-import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
-import { increase, decrease, reset } from "./redux/actions/actions";
-import { INCREASE_COUNTER } from "./redux/types/types";
+import { useState } from 'react'
+// import StudentList from './components/StudentList'
+// import {StudentContext} from './context/StudentContext';
 
-function App() {
-  const { counter } = useSelector((state) => state);
-  const dispatch = useDispatch();
+import ContextApp from './cohort10context/ContextApp';
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h2>Counter</h2>
-        <div>
-          <h1>{counter}</h1>
-        </div>
-        <div>
-          {/* <button onClick={() => dispatch({type: INCREASE_COUNTER})}>increase</button> */}
-          <button onClick={() => dispatch(increase())}>increase</button>
-          <button onClick={() => dispatch(reset())}>reset</button>
-          <button onClick={() => dispatch(decrease())}>decrease</button>
-        </div>
-      </header>
+// const data = [
+//   { id: 1, name: 'Jason Response', email: 'jason@mail.com', age: 23, color: 'lightcyan' },
+//   { id: 2, name: 'Benjamin Evalent', email: 'benjamin@mail.com', age: 20, color: 'honeydew' },
+//   { id: 3, name: 'Malcolm Function', email: 'malcolm@mail.com', age: 21, color: 'mistyrose' }
+// ]
+
+// const App = () => {
+//   const [students, setStudents] = useState(data)
+
+//   const changeColor = (id, color) =>
+//     setStudents(students.map((student) => (student.id === id ? { ...student, color: color } : student)))
+
+//   return (
+//     <StudentContext.Provider value={{changeColor, students}}>
+//     <div className="App">
+//       <header>
+//         <h1>Welcome!</h1>
+//       </header>
+//       <StudentList/>
+//     </div>
+//     </StudentContext.Provider>
+//   )
+// }
+
+// export default App
+
+
+const App = () => {
+  return(
+    <div>
+      <ContextApp/>
     </div>
   );
-}
-
-export default App;
+};
+export default App
