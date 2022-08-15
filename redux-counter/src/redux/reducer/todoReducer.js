@@ -18,7 +18,8 @@ const todoReducer = (state = INITIAL_STATE, action) => {
     case TOGGLE_TODO:
       return { ...state, counter: 0 };
     default:
-      return INITIAL_STATE;
+    // Başlangıçta action gelmezse hata vermesin
+      return state;
   }
 };
 
