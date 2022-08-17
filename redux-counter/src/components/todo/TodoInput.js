@@ -10,6 +10,8 @@ const TodoInput = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(addTodo(text))
+        console.log(text)
+        setText("")
     }
 
     return (

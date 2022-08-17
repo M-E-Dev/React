@@ -12,7 +12,8 @@ const todoReducer = (state = INITIAL_STATE, action) => {
                 list: [...state.list, {id: state.counter + 1, text: action.payLoad, completed: false}]
     };
     case DELETE_TODO:
-      return { ...state, counter: state.counter - 1 };
+      console.log(action.payload);
+      return { ...state, list: state.list.filter((item) => (item.id !== action.payLoad)) };
     case CLEAR_TODO_LIST:
       return { state: INITIAL_STATE, counter: 0 };
     case TOGGLE_TODO:

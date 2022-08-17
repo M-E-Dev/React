@@ -4,11 +4,12 @@ import TodoItem from './TodoItem'
 
 const TodoList = () => {
     const { list } = useSelector((state) => state.todoReducer )
-
+    
     const handleClearList = () => {
 
     }
-
+    console.log(list)
+    
     return(
         <div>
             <div>

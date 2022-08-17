@@ -4,7 +4,7 @@ export const addTodo = (payLoad) => {
     return { type: ADD_TODO, payLoad : payLoad }
 }
 export const deleteTodo = (payLoad) => {
-    return { type: DELETE_TODO, payLoad }
+    return { type: DELETE_TODO, payLoad : payLoad }
 }
 export const clearTodoList = () => {
     return { type: CLEAR_TODO_LIST }

@@ -1,13 +1,19 @@
 import React from 'react'
+import { useDispatch } from 'react-redux/es/exports';
+import { deleteTodo } from '../../redux/actions/todoActions';
+import deleteLogo from "../../assets/delete.png"
+import okLogo from "../../assets/ok.png"
 
-const TodoItem = () => {
+const TodoItem = ({completed, text, id}) => {
+    const dispatch = useDispatch();
 
     const handleToggle = () => {
         
     };
   
     const handleDelete = () => {
-        
+        dispatch(deleteTodo(id));
+        console.log("handleDelete");
     };
 
     const styled = {
@@ -20,8 +26,8 @@ const TodoItem = () => {
     <div style={styled} className="todo-list">
         <h2 className='todoText' >{text}</h2>
         <div>
-            <span><img src={okLogo} className="ok-logo" alt='ok logo' onClick={handleToggle}/></span>
-            <span><img src={deleteLogo} className="delete-logo" alt='delete logo' onClick={handleDelete}/></span>
+            <span><img src={okLogo} style={{width:"25px"}} className="ok-logo" alt='ok logo' onClick={handleToggle}/></span>
+            <span><img src={deleteLogo} style={{width:"25px"}} className="delete-logo" alt='delete logo' onClick={handleDelete}/></span>
         </div>
     </div>
   )
