@@ -15,9 +15,9 @@ const todoReducer = (state = INITIAL_STATE, action) => {
       console.log(action.payload);
       return { ...state, list: state.list.filter((item) => (item.id !== action.payLoad)) };
     case CLEAR_TODO_LIST:
-      return { state: INITIAL_STATE, counter: 0 };
+      return { ...state, list: INITIAL_STATE.list, counter: 0 };
     case TOGGLE_TODO:
-      return { ...state, counter: 0 };
+      return { ...state, list: state.list.map(todo => todo.id === action.payLoad ? {...todo, completed: !todo.completed} : todo) };
     default:
     // Başlangıçta action gelmezse hata vermesin
       return state;

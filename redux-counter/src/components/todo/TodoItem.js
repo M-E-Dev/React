@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux/es/exports';
-import { deleteTodo } from '../../redux/actions/todoActions';
+import { deleteTodo, toggleTodo } from '../../redux/actions/todoActions';
 import deleteLogo from "../../assets/delete.png"
 import okLogo from "../../assets/ok.png"
 
@@ -8,7 +8,7 @@ const TodoItem = ({completed, text, id}) => {
     const dispatch = useDispatch();
 
     const handleToggle = () => {
-        
+        dispatch(toggleTodo(id))
     };
   
     const handleDelete = () => {
