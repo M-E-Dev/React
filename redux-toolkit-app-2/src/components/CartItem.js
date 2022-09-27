@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronUp } from "../icons";
+import { ChevronDown, ChevronUp, RemoveLogo } from "../icons";
 import { removeItem, increase, decrease } from "../features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 
@@ -28,7 +28,9 @@ const CartItem = ({ id, img, title, price, amount }) => {
             dispatch(decrease({ id }));
           }}
         >
-          <ChevronDown />
+          {
+            amount > 1 ? <ChevronDown /> : <RemoveLogo/>
+          }
         </button>
       </div>
     </article>
